@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { NgForm } from '@angular/forms';
+// import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Post } from '../post.model';
 import { PostsService } from '../posts.service';
+// import { mimeType } from './mime-type.validator';
 
 @Component({
   selector: 'app-post-create',
@@ -14,8 +16,8 @@ export class PostCreateComponent implements OnInit {
   enteredContent: string = '';
   post!: Post;
   isLoading = false;
-  form!: FormGroup;
-  imagePreview!: string;
+  // form!: FormGroup;
+  // imagePreview!: string;
   private mode = 'create';
   private postId: any;
 
@@ -25,11 +27,10 @@ export class PostCreateComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.form = new FormGroup({
-      title: new FormControl(null, { validators: [Validators.required] }),
-      content: new FormControl(null, { validators: [Validators.required] }),
-      image: new FormControl(null, { validators: [Validators.required] })
-    });
+    // this.form = new FormGroup({
+    //   title: new FormControl(null, { validators: [Validators.required] }),
+    //   content: new FormControl(null, { validators: [Validators.required] })
+    // });
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
       if (paramMap.has('postId')) {
         this.mode = 'edit';
@@ -42,10 +43,10 @@ export class PostCreateComponent implements OnInit {
             title: postData.title,
             content: postData.content,
           };
-          this.form.setValue({
-            title: this.post.title,
-            content: this.post.content,
-          });
+          // this.form.setValue({
+          //   title: this.post.title,
+          //   content: this.post.content,
+          // });
         });
       } else {
         this.mode = 'create';
@@ -54,29 +55,31 @@ export class PostCreateComponent implements OnInit {
     });
   }
 
-  onImagePicked(event: Event) {
-    const file: any = (event.target as HTMLInputElement).files![0];
-    this.form.patchValue({image: file});
-    this.form.get('image')?.updateValueAndValidity();
-    const reader = new FileReader();
-    reader.onload = () => {
-      this.imagePreview = reader.result as string;
-    }
-    reader.readAsDataURL(file);
-  }
+  // onImagePicked(event: Event) {
+  //   const file: any = (event.target as HTMLInputElement).files![0];
+  //   this.form.patchValue({ image: file });
+  //   this.form.get('image')?.updateValueAndValidity();
+  //   const reader = new FileReader();
+  //   reader.onload = () => {
+  //     this.imagePreview = reader.result as string;
+  //   };
+  //   reader.readAsDataURL(file);
+  // }
 
-  onSavePost() {
-    if (this.form.invalid) return;
-    this.isLoading = true;
-    if (this.mode === 'create') {
-      this.postsService.addPost(this.form.value.title, this.form.value.content);
+  onSavePost(form: NgForm) {
+    if (form.invalid) {
+      return;
+    }
+    // this.isLoading = true;
+    if (this.mode === "create") {
+      this.postsService.addPost(form.value.title, form.value.content);
     } else {
       this.postsService.updatePost(
         this.postId,
-        this.form.value.title,
-        this.form.value.content
+        form.value.title,
+        form.value.content
       );
     }
-    this.form.reset();
+    form.resetForm();
   }
 }

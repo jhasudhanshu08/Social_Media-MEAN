@@ -19,3 +19,7 @@ input[type="file"] {
     height: 170%;
     width: 15%;
 }
+
+mat-radio-button {
+    margin-left: 10px;
+}

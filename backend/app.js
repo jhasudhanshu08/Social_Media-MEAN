@@ -1,3 +1,4 @@
+const path = require("path");
 const express = require("express");
 const bodyParer = require("body-parser");
 const mongoose = require("mongoose");
@@ -18,6 +19,7 @@ mongoose.connect("mongodb+srv://mean:mean123@cluster0.3n3vd.mongodb.net/mean?ret
 
 app.use(bodyParer.json());
 app.use(bodyParer.urlencoded({ extended: false }))
+// app.use("/images", express.static(path.join(__dirname, 'images')));
 
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");

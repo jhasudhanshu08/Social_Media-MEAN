@@ -5,3 +5,20 @@
 .info-text {
     text-align: center;
 }
+
+.post-image {
+    width: 100%;
+}
+
+.post-image img {
+    width: 100%;
+}
+
+.mat-edit-button {
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.mat-delete-button {
+    margin-right: 20px;
+}

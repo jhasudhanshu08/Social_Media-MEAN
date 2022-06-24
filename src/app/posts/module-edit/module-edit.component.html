@@ -1,0 +1,185 @@
+<mat-card>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form (submit)="onSavePost(postForm)" #postForm="ngForm" *ngIf="!isLoading">
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="title"
+        [ngModel]="post?.title"
+        #title="ngModel"
+        required
+        placeholder="Device Id"
+      />
+      <mat-error *ngIf="title.invalid">Please enter the title !!</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        rows="3"
+        name="content"
+        [ngModel]="post?.content"
+        required
+        placeholder="Device Type"
+        #content="ngModel"
+      />
+      <mat-error *ngIf="content.invalid">Please enter the content !!</mat-error>
+    </mat-form-field>
+
+    <!-- <input
+        matInput
+        rows="3"
+        name="content"
+        [ngModel]="post?.content"
+        required
+        placeholder="Information"
+        #content="ngModel"/> -->
+
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header> Information </mat-expansion-panel-header>
+        <input
+          matInput
+          rows="3"
+          name="content"
+          [ngModel]="post?.content"
+          required
+          placeholder="Name"
+          #content="ngModel"
+        />
+        <mat-error *ngIf="content.invalid">Please enter the content !!</mat-error>
+        <br /><br />
+        <input
+          matInput
+          rows="3"
+          name="content"
+          [ngModel]="post?.content"
+          required
+          placeholder="Type"
+          #content="ngModel"
+        />
+        <mat-error *ngIf="content.invalid">Please enter the content !!</mat-error>
+        <br /><br />
+
+        <br /><br />
+
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header> Capacity </mat-expansion-panel-header>
+            <input
+              matInput
+              rows="3"
+              name="content"
+              [ngModel]="post?.content"
+              required
+              placeholder="AC"
+              #content="ngModel"
+            />
+            <mat-error *ngIf="content.invalid">Please enter the content !!</mat-error>
+            <br /><br />
+            <input
+              matInput
+              rows="3"
+              name="content"
+              [ngModel]="post?.content"
+              required
+              placeholder="DC"
+              #content="ngModel"
+            />
+            <mat-error *ngIf="content.invalid">Please enter the content !!</mat-error>
+          </mat-expansion-panel>
+        </mat-accordion>
+        <br /><br />
+
+        <input
+          matInput
+          rows="3"
+          name="content"
+          [ngModel]="post?.content"
+          required
+          placeholder="Serial No"
+          #content="ngModel"
+        />
+        <mat-error *ngIf="content.invalid">Please enter the content !!</mat-error>
+        <br /><br />
+        <input
+          matInput
+          rows="3"
+          name="content"
+          [ngModel]="post?.content"
+          required
+          placeholder="Location"
+          #content="ngModel"
+        />
+        <mat-error *ngIf="content.invalid">Please enter the content !!</mat-error>
+        <br /><br />
+        <input
+          matInput
+          rows="3"
+          name="content"
+          [ngModel]="post?.content"
+          required
+          placeholder="Manufacture"
+          #content="ngModel"
+        />
+        <mat-error *ngIf="content.invalid">Please enter the content !!</mat-error>
+        <br /><br />
+        <input
+          matInput
+          rows="3"
+          name="content"
+          [ngModel]="post?.content"
+          required
+          placeholder="Model"
+          #content="ngModel"
+        />
+        <mat-error *ngIf="content.invalid">Please enter the content !!</mat-error>
+        <br /><br />
+        <input
+          matInput
+          rows="3"
+          name="content"
+          [ngModel]="post?.content"
+          required
+          placeholder="Device Type"
+          #content="ngModel"
+        />
+        <mat-error *ngIf="content.invalid">Please enter the content !!</mat-error>
+        <br /><br />
+        <input
+          matInput
+          rows="3"
+          name="content"
+          [ngModel]="post?.content"
+          required
+          placeholder="Parsing Version"
+          #content="ngModel"
+        />
+        <mat-error *ngIf="content.invalid">Please enter the content !!</mat-error>
+        <br /><br />
+        <textarea
+          matInput
+          rows="3"
+          name="content"
+          [ngModel]="post?.content"
+          required
+          placeholder="Description"
+          #content="ngModel"
+        ></textarea>
+        
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <mat-error *ngIf="content.invalid">Please enter the content !!</mat-error>
+
+    <br /><br />
+    <hr />
+    <br />
+    <mat-dialog-actions align="end">
+      <button mat-raised-button color="warn" type="submit">Submit</button>
+      <button mat-button mat-dialog-close>Cancel</button>
+      <!-- <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button> -->
+    </mat-dialog-actions>
+  </form>
+</mat-card>
