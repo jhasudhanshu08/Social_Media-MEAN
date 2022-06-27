@@ -48,7 +48,7 @@ export class ModuleEditComponent implements OnInit, OnDestroy {
           // });
         });
       } else {
-        this.mode = 'create';
+        // this.mode = 'create';
         this.postId = null;
       }
     });

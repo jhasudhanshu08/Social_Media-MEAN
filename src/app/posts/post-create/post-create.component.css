@@ -1,5 +1,10 @@
-mat-form-field, textarea {
+mat-form-field {
     width: 100%;
+}
+
+.card-width {
+    width: 120vh;
+    margin-left: 2.5%;
 }
 
 mat-spinner {
@@ -10,16 +15,37 @@ input[type="file"] {
     visibility: hidden;
 }
 
-.image-preview {
-    height: 5rem;
-    margin: 1rem 0;
-}
-
-.image-preview img {
-    height: 170%;
-    width: 15%;
-}
-
 mat-radio-button {
     margin-left: 10px;
+}
+
+.capacity-width {
+    width: 100%;
+}
+
+.device-width {
+    width: 50%;
+    /* margin-left: 10%; */
+}
+
+.information-width {
+    width: 100%;
+    /* margin-right: 50%; */
+}
+
+.information-margin {
+    margin-left: 50%;
+}
+
+.other-width {
+    width: 100%;
+    /* padding-right: 100px; */
+}
+
+.description-width {
+    width: 70%;
+}
+
+td {
+    padding-right: 200px;
 }
